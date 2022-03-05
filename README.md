@@ -1,11 +1,11 @@
 # MiniGames
 
-Varie cartelli di minigiochi scritti in C/C++/Java/Python.
+Varie cartelle di minigiochi scritti in C/C++/Java/Python.
 Nel caso di un minigioco scritto in C:
     - compilare (se non già fatto) scrivendo da terminale il comando: gcc -o "nomeGioco" "nomeGioco.c".
     - creato l'eseguibile avviarlo da terminale con il comando: ./"nomeGioco".
 Nel caso di un minigioco scritto in C++:
-    - compilare (se non già fatto) scrivendo da terminale il comando: g++ -o "nomeGioco" "nomeGioco.c".
+    - compilare (se non già fatto) scrivendo da terminale il comando: g++ -o "nomeGioco" "nomeGioco.cpp".
     - creato l'eseguibile avviarlo da terminale con il comando: ./"nomeGioco".
 Nel caso di un minigioco scritto in Python:
     - eseguire direttamente il gioco da terminale con il comando: python "NomeGioco.py".
