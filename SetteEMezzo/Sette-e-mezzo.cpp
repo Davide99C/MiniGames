@@ -55,6 +55,7 @@ int main(int argc, char** args) {
     int indice_carta_mazzo;
     time_t t;
     int len = 40;
+    bool max_punto_giocatore = false;
 
     //mazzo dal quale sottrarrò le carte estratte 
     double* mazzo = (double*)malloc(sizeof(double)*len);  //array<double,40> mazzo = MAZZO;
@@ -118,6 +119,7 @@ int main(int argc, char** args) {
 
             if ( punto_giocatore == SETTE_E_MEZZO) { // controllo se l'utente ha fatto 7,5
                 cout << "Hai fatto SETTE E MEZZO!! Attendi il turno del banco..." << endl;
+                max_punto_giocatore = true;
                 break;
             }
         }
@@ -131,9 +133,10 @@ int main(int argc, char** args) {
     // TURNO DEL BANCO
     if (punto_giocatore <= SETTE_E_MEZZO) {
         cout << "  \nCarta iniziale del banco: " << punto_pc << endl;
+        int f=0;
         while(1) {
             // IL BANCO SI FERMA AL PUNTEGGIO REALIZZATO FINO AD ORA
-            if (punto_pc >= 5 && punto_pc > punto_scoperto) {
+            if (punto_pc >= 4.5 && punto_pc > punto_scoperto && !max_punto_giocatore) {
                 cout << "Il banco sta bene cosi" << endl;
                 cout << "Il punteggio totale del banco è: " << punto_pc << endl;
                 if ( punto_pc >= punto_giocatore) cout << "HAI PERSO :(. Il banco vince, sfidalo di nuovo!" << endl;
@@ -141,7 +144,11 @@ int main(int argc, char** args) {
                 break;
             }
             // IL BANCO RICHIEDE LA CARTA
-            else {
+            else { 
+                if (max_punto_giocatore && f==0) {
+                    cout << "Il banco può solo fare sette e mezzo per batterti..." << endl;
+                    f++;
+                }
                 srand((unsigned) time(&t));
                 indice_carta_mazzo = rand()%len; 
                 nuova_carta = mazzo[indice_carta_mazzo];
